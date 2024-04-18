@@ -19,4 +19,12 @@ class AppState extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  // Menambahkan fungsi untuk menghapus item favorit
+  void removeFavorite(WordPair pair) {
+    if (favorites.contains(pair)) {
+      favorites.remove(pair);
+      notifyListeners();
+    }
+  }
 }

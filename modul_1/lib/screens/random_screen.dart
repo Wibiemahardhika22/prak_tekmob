@@ -22,6 +22,7 @@ class RandomScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           BigCard(pair: pair),
+          const SizedBox(height: 10),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [

@@ -26,6 +26,39 @@ class FavoriteScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.favorite),
             title: Text(pair.asLowerCase),
+
+            // Menambahkan IconButton yang berfungsi untuk menghapus item favorit
+            trailing: IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                // Tampilkan dialog konfirmasi sebelum menghapus
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text("Hapus Favorit"),
+                      content: Text("Apakah Anda yakin ingin menghapus ${pair.asPascalCase} dari favorit?"),
+                      actions: <Widget>[
+                        TextButton(
+                          child: const Text("Batal"),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          child: const Text("Hapus"),
+                          onPressed: () {
+                            // Panggil metode untuk menghapus item dari favorit
+                            appState.removeFavorite(pair);
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
           ),
       ],
     );
