@@ -90,11 +90,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/register');
-              },
-              child: const Text('Sign Up'),
+            const SizedBox(height: 42.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('Anda belum memiliki akun? '),
+                TextButton(
+                  onPressed: () {
+                    // Navigate to your login page here
+                    Navigator.pushNamed(context,'/register');
+                  },
+                  child: const Text('Sign Up'),
+                ),
+              ],
             ),
           ],
         ),
